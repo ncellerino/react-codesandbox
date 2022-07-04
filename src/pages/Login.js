@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Input from "../components/FormFields/Input";
 import useLocalStorageState from "../hooks/localStorageState";
 
@@ -22,12 +22,6 @@ function Login() {
     }
     return initialLogin;
   });
-
-  // useEffect(() => {
-  //   return () => {
-  //     //clean up
-  //   };
-  // }, [rememberMe]);
 
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
