@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Input from "../components/FormFields/Input";
 import useLocalStorageState from "../hooks/localStorageState";
+import {
+Link
+} from "react-router-dom";
 
 const error = "";
 
@@ -88,7 +91,7 @@ function Login() {
       <button disabled={Boolean(error)} type="submit">
         Login
       </button>
-      <a href="/register">or Register</a>
+      <Link to="/register">or Register</Link>      
       <button type="button" onClick={handleThrowError}>
         Throw Error
       </button>

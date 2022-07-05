@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import Input from "../components/FormFields/Input";
 import usePasswordValidation from "../hooks/passwordValidation";
+import {
+  Link
+  } from "react-router-dom";
 
 const Register = () => {
   const [inputs, setInputs] = useState({});
@@ -88,7 +91,7 @@ const Register = () => {
           </ul>
         </div>
         <button type="submit">Register </button>
-        <a href="/login">or Login</a>
+        <Link to="/">or Login</Link>      
       </form>
     </div>
   );

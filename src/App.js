@@ -1,10 +1,13 @@
 import "./App.css";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-//import ErrorBoundary from "./components/ErrorBoundary";
 import { ErrorBoundary } from "react-error-boundary";
 import React from "react";
-import useLocalStorageState from "./hooks/localStorageState";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function ErrorFallback({ error }) {
   return (
@@ -18,14 +21,18 @@ function ErrorFallback({ error }) {
 function App() {
   console.log("App render start");
 
-  const [showTilt, setShowTilt] = useLocalStorageState("showTilt", false);
-
   console.log("App render end");
   return (
     <div className="App">
-      <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Login />
-        <Register />
+      <ErrorBoundary FallbackComponent={ErrorFallback}>             
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+              <Route index element={<Login />} />
+              <Route path="register" element={<Register />}/>                                                              
+            </Route>
+          </Routes>
+       </BrowserRouter>
       </ErrorBoundary>
     </div>
   );
